@@ -1,0 +1,6 @@
+From: it@company.local
+To: user@company.local
+Subject: Плановые работы
+
+В субботу с 10:00 до 14:00
+будут плановые работы.

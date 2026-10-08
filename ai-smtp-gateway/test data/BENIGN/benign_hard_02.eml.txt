@@ -1,0 +1,6 @@
+From: friend@example.com
+To: user@company.local
+Subject: Фильм
+
+В фильме "Осада" показан захват заложников.
+Рекомендую.

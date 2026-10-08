@@ -1,0 +1,301 @@
+# Промпт v3
+
+Финальная версия промпта для DeepSeek. Синхронизирована с:
+- `taxonomy_v1.md` — определения категорий
+- `taxonomy-boundaries-v1.md` — правила разрешения коллизий
+- `classifier-contract-v1.md` — формат входа/выхода
+
+## 1. Что входит в промпт
+
+Промпт состоит из **трёх частей:**
+
+| Часть | Где хранится | Назначение |
+|---|---|---|
+| System prompt | `system_v3.txt` | Инструкция + правила |
+| Few-shot | `few_shot_v3.json` | 12 примеров |
+| User prompt | генерируется backend | Реальное письмо в JSON |
+
+## 2. Что промпт НЕ делает
+
+| НЕ делает | Кто делает |
+
+## 4. Few-shot (`few_shot_v3.json`)
+
+12 примеров: по 2 на каждую категорию + 2 пограничных.
+
+```json
+[
+  {
+    "input": {
+      "subject": "Новости",
+      "from": {"address": "news@example.com", "name": null},
+      "to": [{"address": "user@company.ru", "name": null}],
+      "cc": [],
+      "date": "2026-10-08T10:00:00+03:00",
+      "body": {"text": "Вчера в Стамбуле произошёл теракт, погибло 10 человек.", "html_present": false, "attachments": []},
+      "headers_extra": {}
+    },
+    "output": {
+      "category": "BENIGN",
+      "confidence": 0.95,
+      "reason": "Новость о теракте в третьем лице, нет субъекта угрозы.",
+      "indicators": ["теракт", "вчера", "Стамбул"],
+      "language": "ru",
+      "is_threat": false
+    }
+  },
+  {
+    "input": {
+      "subject": "Срочно",
+      "from": {"address": "unknown@example.com", "name": null},
+      "to": [{"address": "user@company.ru", "name": null}],
+      "cc": [],
+      "date": "2026-10-08T10:32:00+03:00",
+      "body": {"text": "Завтра в 12:00 взорвём торговый центр на Ленина.", "html_present": false, "attachments": []},
+      "headers_extra": {}
+    },
+    "output": {
+      "category": "TERRORISM",
+      "confidence": 0.98,
+      "reason": "Прямая угроза взрыва в публичном месте с конкретным временем.",
+      "indicators": ["взорвём", "торговый центр", "12:00"],
+      "language": "ru",
+      "is_threat": true
+    }
+  },
+  {
+    "input": {
+      "subject": "Планы",
+      "from": {"address": "anon@example.com", "name": null},
+      "to": [{"address": "info@company.ru", "name": null}],
+      "cc": [],
+      "date": "2026-10-08T10:00:00+03:00",
+      "body": {"text": "В 12:00 на химзаводе №5 произойдёт выброс хлора. Готовьтесь.", "html_present": false, "attachments": []},
+      "headers_extra": {}
+    },
+    "output": {
+      "category": "TECHNOGENIC",
+      "confidence": 0.94,
+      "reason": "Угроза выброса на промышленном объекте с конкретным временем.",
+      "indicators": ["выброс", "хлор", "химзавод", "12:00"],
+      "language": "ru",
+      "is_threat": true
+    }
+  },
+  {
+    "input": {
+      "subject": "Отключение",
+      "from": {"address": "anon@example.com", "name": null},
+      "to": [{"address": "office@company.ru", "name": null}],
+      "cc": [],
+      "date": "2026-10-08T10:00:00+03:00",
+      "body": {"text": "Мы отключим энергосеть города на сутки, если требования не будут выполнены.", "html_present": false, "attachments": []},
+      "headers_extra": {}
+    },
+    "output": {
+      "category": "TECHNOGENIC",
+      "confidence": 0.92,
+      "reason": "Угроза отключения инфраструктуры (энергосеть) от первого лица.",
+      "indicators": ["отключим", "энергосеть"],
+      "language": "ru",
+      "is_threat": true
+    }
+  },
+  {
+    "input": {
+      "subject": "Долг",
+      "from": {"address": "threat@example.com", "name": null},
+      "to": [{"address": "user@company.ru", "name": null}],
+      "cc": [],
+      "date": "2026-10-08T10:00:00+03:00",
+      "body": {"text": "Если не вернёшь долг до пятницы, я тебя найду и покалечу.", "html_present": false, "attachments": []},
+      "headers_extra": {}
+    },
+    "output": {
+      "category": "ILLEGAL",
+      "confidence": 0.92,
+      "reason": "Угроза физической расправы в адрес конкретного лица с дедлайном.",
+      "indicators": ["найду", "покалечу", "долг"],
+      "language": "ru",
+      "is_threat": true
+    }
+  },
+  {
+    "input": {
+      "subject": "Расправа",
+      "from": {"address": "anon@example.com", "name": null},
+      "to": [{"address": "user@company.ru", "name": null}],
+      "cc": [],
+      "date": "2026-10-08T10:00:00+03:00",
+      "body": {"text": "Я тебя найду и убью. Это не шутка.", "html_present": false, "attachments": []},
+      "headers_extra": {}
+    },
+    "output": {
+      "category": "ILLEGAL",
+      "confidence": 0.95,
+      "reason": "Прямая угроза убийством конкретному лицу от первого лица.",
+      "indicators": ["найду", "убью"],
+      "language": "ru",
+      "is_threat": true
+    }
+  },
+  {
+    "input": {
+      "subject": "Данные",
+      "from": {"address": "anon@example.com", "name": null},
+      "to": [{"address": "user@company.ru", "name": null}],
+      "cc": [],
+      "date": "2026-10-08T10:00:00+03:00",
+      "body": {"text": "Я залью в сеть все твои переписки и фото, если не заплатишь.", "html_present": false, "attachments": []},
+      "headers_extra": {}
+    },
+    "output": {
+      "category": "OTHER_THREAT",
+      "confidence": 0.90,
+      "reason": "Угроза утечки данных — кибер-метод, нефизический вред конкретному лицу.",
+      "indicators": ["залью", "переписки", "фото", "заплатишь"],
+      "language": "ru",
+      "is_threat": true
+    }
+  },
+  {
+    "input": {
+      "subject": "Вирус",
+      "from": {"address": "threat@example.com", "name": null},
+      "to": [{"address": "user@company.ru", "name": null}],
+      "cc": [],
+      "date": "2026-10-08T10:00:00+03:00",
+      "body": {"text": "Мы выпустим вирус в систему водоснабжения города.", "html_present": false, "attachments": []},
+      "headers_extra": {}
+    },
+    "output": {
+      "category": "OTHER_THREAT",
+      "confidence": 0.88,
+      "reason": "Биологический метод (вирус) переопределяет инфраструктурную цель.",
+      "indicators": ["вирус", "водоснабжение"],
+      "language": "ru",
+      "is_threat": true
+    }
+  },
+  {
+    "input": {
+      "subject": "Книга",
+      "from": {"address": "friend@example.com", "name": null},
+      "to": [{"address": "user@company.ru", "name": null}],
+      "cc": [],
+      "date": "2026-10-08T10:00:00+03:00",
+      "body": {"text": "[QUOTE_L1] «Я тебя убью», — сказал герой книги. Сильная сцена.", "html_present": false, "attachments": []},
+      "headers_extra": {}
+    },
+    "output": {
+      "category": "BENIGN",
+      "confidence": 0.96,
+      "reason": "Цитата из книги, триггер внутри контекста произведения.",
+      "indicators": ["убью", "книга", "герой"],
+      "language": "ru",
+      "is_threat": false
+    }
+  },
+  {
+    "input": {
+      "subject": "Шахматы",
+      "from": {"address": "friend@example.com", "name": null},
+      "to": [{"address": "user@company.ru", "name": null}],
+      "cc": [],
+      "date": "2026-10-08T10:00:00+03:00",
+      "body": {"text": "Я тебя убью на шахматах!", "html_present": false, "attachments": []},
+      "headers_extra": {}
+    },
+    "output": {
+      "category": "BENIGN",
+      "confidence": 0.97,
+      "reason": "Метафора в игровом контексте, нет реальной угрозы.",
+      "indicators": ["убью", "шахматы"],
+      "language": "ru",
+      "is_threat": false
+    }
+  },
+  {
+    "input": {
+      "subject": "Призыв",
+      "from": {"address": "nobody@example.com", "name": null},
+      "to": [{"address": "user@company.ru", "name": null}],
+      "cc": [],
+      "date": "2026-10-08T10:00:00+03:00",
+      "body": {"text": "Пора действовать. Все, кто против нас, должны быть уничтожены. Присоединяйтесь к борьбе.", "html_present": false, "attachments": []},
+      "headers_extra": {}
+    },
+    "output": {
+      "category": "TERRORISM",
+      "confidence": 0.93,
+      "reason": "Идеологический призыв к массовому насилию — правило 1 переопределяет всё.",
+      "indicators": ["против нас", "уничтожены", "присоединяйтесь"],
+      "language": "ru",
+      "is_threat": true
+    }
+  },
+  {
+    "input": {
+      "subject": "Планы",
+      "from": {"address": "x@example.com", "name": null},
+      "to": [{"address": "user@company.ru", "name": null}],
+      "cc": [],
+      "date": "2026-10-08T10:00:00+03:00",
+      "body": {"text": "В 12:00 на промышленном объекте произойдёт небольшая авария. Никто не пострадает, если вы выполните наши условия.", "html_present": false, "attachments": []},
+      "headers_extra": {}
+    },
+    "output": {
+      "category": "TECHNOGENIC",
+      "confidence": 0.85,
+      "reason": "Угроза аварии на промышленном объекте с условием. Низкий confidence из-за размытой формулировки.",
+      "indicators": ["авария", "промышленный объект", "12:00"],
+      "language": "ru",
+      "is_threat": true
+    }
+  }
+]
+|---|---|
+| Нормализацию текста | `normalizer.py` |
+| Проверку BENIGN-контекста | `benign_context.py` |
+| Запуск adjudication | `adjudication.py` |
+| Решение о REDIRECT | Policy Engine |
+| Маскировку URL / email | `normalizer.py` |
+import json
+
+# Загрузка
+system_prompt = open("prompts/system_v3.txt", encoding="utf-8").read()
+few_shot = json.load(open("prompts/few_shot_v3.json", encoding="utf-8"))
+
+# Формирование messages
+messages = [{"role": "system", "content": system_prompt}]
+
+for ex in few_shot:
+    messages.append({
+        "role": "user",
+        "content": json.dumps(ex["input"], ensure_ascii=False)
+    })
+    messages.append({
+        "role": "assistant",
+        "content": json.dumps(ex["output"], ensure_ascii=False)
+    })
+
+# Реальное письмо
+messages.append({
+    "role": "user",
+    "content": json.dumps(email_json, ensure_ascii=False)
+})
+
+# Вызов
+response = client.chat.completions.create(
+    model="deepseek-flash",
+    messages=messages,
+    response_format={"type": "json_object"},
+    temperature=0,
+    max_tokens=500,
+)
+| Детекцию обфускации | Char-Ngram |
+
+**Граница:** промпт получает **чистый нормализованный текст** и возвращает
+**классификацию**. Всё остальное — до или после.
+
+## 3. System prompt (`system_v3.txt`)

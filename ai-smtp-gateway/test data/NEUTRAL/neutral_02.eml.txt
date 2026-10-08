@@ -1,0 +1,5 @@
+From: friend@example.com
+To: user@company.local
+Subject: Задача
+
+Эта задача — убийца.

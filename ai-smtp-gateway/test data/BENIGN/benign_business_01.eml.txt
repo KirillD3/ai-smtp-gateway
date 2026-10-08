@@ -1,0 +1,6 @@
+From: colleague@company.local
+To: user@company.local
+Subject: Встреча в 15:00
+
+Коллеги, напоминаю о встрече в 15:00.
+Повестка во вложении.

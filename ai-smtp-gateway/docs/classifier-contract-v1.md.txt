@@ -1,0 +1,26 @@
+# Контракт классификатора v1
+
+Формат обмена данными между SMTP-шлюзом и DeepSeek API.
+
+## Схема запроса: Email → DeepSeek
+
+```json
+{
+  "message_id": "550e8400-e29b-41d4-a716-446655440000",
+  "subject": "Внимание",
+  "from": {"address": "sender@example.com", "name": "Иван Иванов"},
+  "to": [{"address": "user@company.ru", "name": "Пётр Петров"}],
+  "cc": [{"address": "boss@company.ru", "name": null}],
+  "date": "2026-10-07T10:32:00+03:00",
+  "body": {
+    "text": "Завтра в 12:00 на промышленном объекте произойдет взрыв.",
+    "html_present": false,
+    "attachments": [
+      {"filename": "plan.pdf", "content_type": "application/pdf", "size_bytes": 24576}
+    ]
+  },
+  "headers_extra": {
+    "reply_to": null,
+    "return_path": "bounce@example.com"
+  }
+}

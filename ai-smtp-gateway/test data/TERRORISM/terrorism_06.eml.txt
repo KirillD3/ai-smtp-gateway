@@ -1,0 +1,6 @@
+From: x@example.com
+To: user@company.local
+Subject: Внимание
+
+Завтра в 12:00 в3рвём ТЦ на Ленина.
+Никто не выживет.

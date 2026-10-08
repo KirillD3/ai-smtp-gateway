@@ -1,0 +1,71 @@
+id,filename,category,expected_action,confidence_min,indicators,notes,lang,difficulty
+1,terrorism_01.eml,TERRORISM,REDIRECT,0.90,"взрыв;торговый центр;12:00",прямая угроза взрыва,ru,easy
+2,terrorism_02.eml,TERRORISM,REDIRECT,0.90,"бомба;метро;требование",угроза + выкуп,ru,easy
+3,terrorism_03.eml,TERRORISM,REDIRECT,0.85,"захват;заложники;школа",угроза захвата,ru,medium
+4,terrorism_04.eml,TERRORISM,REDIRECT,0.80,"уничтожены;призыв",призыв к насилию,ru,medium
+5,terrorism_05.eml,TERRORISM,REDIRECT,0.75,"сгорит;скоро",завуалированная угроза,ru,hard
+6,terrorism_06.eml,TERRORISM,REDIRECT,0.90,"в3рвём;ТЦ;12:00",обфускация,ru,medium
+7,terrorism_07.eml,TERRORISM,REDIRECT,0.90,"bomb;subway;pay",англоязычная угроза,en,medium
+8,terrorism_08.eml,TERRORISM,REDIRECT,0.80,"массовые жертвы;требования",завуалированная угроза,ru,hard
+9,technogenic_01.eml,TECHNOGENIC,REDIRECT,0.90,"выброс;хлор;химзавод;12:00",угроза выброса,ru,easy
+10,technogenic_02.eml,TECHNOGENIC,REDIRECT,0.85,"отключим;энергосеть",угроза отключения,ru,easy
+11,technogenic_03.eml,TECHNOGENIC,REDIRECT,0.80,"авария;ГЭС",угроза аварии,ru,medium
+12,technogenic_04.eml,TECHNOGENIC,REDIRECT,0.85,"отравим;водозабор",угроза отравления,ru,medium
+13,technogenic_05.eml,TECHNOGENIC,REDIRECT,0.85,"взрывчатка;метро;час пик",угроза взрыва на транспорте,ru,medium
+14,technogenic_06.eml,TECHNOGENIC,REDIRECT,0.75,"авария;промышленный объект",завуалированная угроза,ru,hard
+15,technogenic_07.eml,TECHNOGENIC,REDIRECT,0.85,"chemical leak;plant",англоязычная угроза,en,medium
+16,technogenic_08.eml,TECHNOGENIC,REDIRECT,0.80,"АЭС;авария;план",угроза через вложение,ru,hard
+17,illegal_01.eml,ILLEGAL,REDIRECT,0.85,"найду;покалечу;долг",угроза расправы,ru,easy
+18,illegal_02.eml,ILLEGAL,REDIRECT,0.90,"подожгу;машина",угроза поджога,ru,easy
+19,illegal_03.eml,ILLEGAL,REDIRECT,0.90,"похищу;сын;требование",вымогательство,ru,medium
+20,illegal_04.eml,ILLEGAL,REDIRECT,0.80,"пожалеешь;работаешь",угроза в адрес судьи,ru,medium
+21,illegal_05.eml,ILLEGAL,REDIRECT,0.90,"найду;убью",прямая угроза убийством,ru,easy
+22,illegal_06.eml,ILLEGAL,REDIRECT,0.75,"заплатишь;сосед",завуалированная угроза,ru,hard
+23,illegal_07.eml,ILLEGAL,REDIRECT,0.85,"hurt;family;pay",англоязычная угроза,en,medium
+24,illegal_08.eml,ILLEGAL,REDIRECT,0.80,"статья;последняя;живёшь",угроза журналисту,ru,medium
+25,other_01.eml,OTHER_THREAT,REDIRECT,0.85,"залью;переписки;фото",угроза утечки данных,ru,easy
+26,other_02.eml,OTHER_THREAT,REDIRECT,0.80,"вирус;водоснабжение",биологическая угроза,ru,medium
+27,other_03.eml,OTHER_THREAT,REDIRECT,0.75,"уничтожу;репутация",угроза репутации,ru,hard
+28,other_04.eml,OTHER_THREAT,REDIRECT,0.80,"отравим;река;катастрофа",экологическая угроза,ru,medium
+29,other_05.eml,OTHER_THREAT,REDIRECT,0.85,"взломаем;данные;клиенты",киберугроза,ru,medium
+30,other_06.eml,OTHER_THREAT,REDIRECT,0.80,"биологическое оружие",биоугроза,ru,medium
+31,benign_business_01.eml,BENIGN,DELIVER,0.95,"встреча;повестка",деловая переписка,ru,easy
+32,benign_business_02.eml,BENIGN,DELIVER,0.95,"отпуск;согласовано",HR,ru,easy
+33,benign_business_03.eml,BENIGN,DELIVER,0.95,"счёт;оплата",финансы,ru,easy
+34,benign_business_04.eml,BENIGN,DELIVER,0.95,"отчёт;квартал",деловая,ru,easy
+35,benign_business_05.eml,BENIGN,DELIVER,0.95,"созвон;завтра",деловая,ru,easy
+36,benign_business_06.eml,BENIGN,DELIVER,0.95,"документы;оформление",HR,ru,easy
+37,benign_business_07.eml,BENIGN,DELIVER,0.95,"правки;проект",деловая,ru,easy
+38,benign_business_08.eml,BENIGN,DELIVER,0.95,"акт;работы",финансы,ru,easy
+39,benign_business_09.eml,BENIGN,DELIVER,0.95,"поздравление;день рождения",личное,ru,easy
+40,benign_business_10.eml,BENIGN,DELIVER,0.95,"работы;суббота",IT,ru,easy
+41,benign_news_01.eml,BENIGN,DELIVER,0.90,"теракт;вчера",новость о теракте,ru,hard
+42,benign_news_02.eml,BENIGN,DELIVER,0.90,"авария;утечка",новость об аварии,ru,hard
+43,benign_news_03.eml,BENIGN,DELIVER,0.90,"убийство;задержан",новость о преступлении,ru,hard
+44,benign_news_04.eml,BENIGN,DELIVER,0.90,"предотвратили;теракт",новость,ru,medium
+45,benign_news_05.eml,BENIGN,DELIVER,0.90,"авария;ГЭС",новость,ru,medium
+46,benign_news_06.eml,BENIGN,DELIVER,0.85,"поджоги;криминал",новость,ru,medium
+47,benign_news_07.eml,BENIGN,DELIVER,0.85,"обзор;теракты",дайджест новостей,ru,hard
+48,benign_news_08.eml,BENIGN,DELIVER,0.85,"угроза;катастрофа",аналитика,ru,hard
+49,benign_hard_01.eml,BENIGN,DELIVER,0.90,"убью;книга",цитата из книги,ru,hard
+50,benign_hard_02.eml,BENIGN,DELIVER,0.90,"захват;заложники;фильм",описание фильма,ru,hard
+51,benign_hard_03.eml,BENIGN,DELIVER,0.95,"убью;шахматы",сарказм,ru,hard
+52,benign_hard_04.eml,BENIGN,DELIVER,0.75,"fwd;угроза",пересылка,ru,hard
+53,benign_hard_05.eml,BENIGN,DELIVER,0.90,"угроза;договор",юридический текст,ru,hard
+54,benign_hard_06.eml,BENIGN,DELIVER,0.90,"действовать;выборы",политика,ru,medium
+55,benign_hard_07.eml,BENIGN,DELIVER,0.85,"бомба;цитата",цитата в новости,ru,hard
+56,benign_hard_08.eml,BENIGN,DELIVER,0.95,"террорист;дедлайны",сарказм,ru,hard
+57,benign_hard_09.eml,BENIGN,DELIVER,0.95,"уничтожу;экзамен",метафора,ru,medium
+58,benign_hard_10.eml,BENIGN,DELIVER,0.95,"взорвал;чат",метафора,ru,medium
+59,benign_hard_11.eml,BENIGN,DELIVER,0.95,"убью;время",метафора,ru,medium
+60,benign_hard_12.eml,BENIGN,DELIVER,0.95,"убийца;задача",метафора,ru,medium
+61,neutral_01.eml,BENIGN,DELIVER,0.60,"уничтожу;экзамен","метафора, пограничный случай",ru,hard
+62,neutral_02.eml,BENIGN,DELIVER,0.60,"убийца;задача",метафора,ru,hard
+63,neutral_03.eml,BENIGN,DELIVER,0.60,"взорвал;чат",метафора,ru,hard
+64,neutral_04.eml,BENIGN,DELIVER,0.60,"убью;время",метафора,ru,hard
+65,neutral_05.eml,BENIGN,DELIVER,0.60,"террорист;дедлайны",сарказм,ru,hard
+66,neutral_06.eml,BENIGN,DELIVER,0.50,пустое тело,техническое,ru,easy
+67,neutral_07.eml,BENIGN,DELIVER,0.50,нет тела,техническое,ru,easy
+68,neutral_08.eml,BENIGN,DELIVER,0.50,только вложение,техническое,ru,easy
+69,neutral_09.eml,BENIGN,DELIVER,0.50,html,техническое,ru,easy
+70,neutral_10.eml,BENIGN,DELIVER,0.50,неизвестный язык,техническое,ru,easy

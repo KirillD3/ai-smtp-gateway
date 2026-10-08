@@ -1,0 +1,6 @@
+From: finance@company.local
+To: user@company.local
+Subject: Счёт
+
+Во вложении счёт на оплату.
+Прошу подтвердить.

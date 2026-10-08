@@ -1,0 +1,6 @@
+From: friend@example.com
+To: user@company.local
+Subject: Шахматы
+
+Я тебя убью на шахматах!
+Готовься.

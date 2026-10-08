@@ -1,0 +1,6 @@
+From: threat@example.com
+To: user@company.local
+Subject: Bomb threat
+
+We have placed a bomb in the subway.
+You have 2 hours. Pay 1 million dollars.

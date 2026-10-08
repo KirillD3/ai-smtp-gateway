@@ -1,0 +1,6 @@
+From: news@example.com
+To: user@company.local
+Subject: Авария
+
+На заводе в Челябинске произошла утечка аммиака.
+Пострадавших нет.

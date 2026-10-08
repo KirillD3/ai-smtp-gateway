@@ -1,0 +1,5 @@
+From: attacker@example.com
+To: user@company.local
+Subject: Срочно
+
+Завтра в 12:00 взорвём торговый центр на Ленина.

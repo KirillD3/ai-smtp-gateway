@@ -1,0 +1,7 @@
+From: friend@example.com
+To: user@company.local
+Subject: Fwd: Угроза
+
+Пересылаю тебе письмо,
+которое мне прислали.
+Что думаешь?

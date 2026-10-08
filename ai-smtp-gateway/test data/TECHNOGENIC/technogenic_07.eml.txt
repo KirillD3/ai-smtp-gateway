@@ -1,0 +1,6 @@
+From: threat@example.com
+To: user@company.local
+Subject: Chemical leak
+
+We will cause a chemical leak at the plant
+in 2 hours. Evacuate or pay.

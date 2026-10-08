@@ -1,0 +1,6 @@
+From: anon@example.com
+To: user@company.local
+Subject: Машина
+
+Я знаю, где ты живёшь.
+Подожгу твою машину.

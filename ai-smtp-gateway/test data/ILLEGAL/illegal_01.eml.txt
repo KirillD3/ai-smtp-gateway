@@ -1,0 +1,6 @@
+From: threat@example.com
+To: user@company.local
+Subject: Долг
+
+Если не вернёшь долг до пятницы,
+я тебя найду и покалечу.

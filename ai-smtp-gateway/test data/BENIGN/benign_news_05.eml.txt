@@ -1,0 +1,6 @@
+From: news@example.com
+To: user@company.local
+Subject: Авария на ГЭС
+
+На ГЭС-2 произошла авария,
+никто не пострадал.

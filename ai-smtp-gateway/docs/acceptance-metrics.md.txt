@@ -1,0 +1,73 @@
+# Метрики приёмки MVP
+
+Критерии, по которым оценивается готовность AI SMTP Security Gateway.
+
+## Функциональные метрики
+
+| Метрика | Целевое | Критично |
+|---|---|---|
+| Recall по TERRORISM | ≥ 0.95 | ≥ 0.90 |
+| Recall по TECHNOGENIC | ≥ 0.90 | ≥ 0.85 |
+| Recall по ILLEGAL | ≥ 0.90 | ≥ 0.85 |
+| Recall по OTHER_THREAT | ≥ 0.80 | ≥ 0.70 |
+| Precision по угрозам (все 4) | ≥ 0.90 | ≥ 0.85 |
+| FPR на BENIGN | ≤ 0.05 | ≤ 0.10 |
+| Accuracy общая | ≥ 0.85 | ≥ 0.80 |
+
+## Нефункциональные метрики
+
+| Метрика | Целевое | Критично |
+|---|---|---|
+| Время обработки письма (p95) | ≤ 10 сек | ≤ 30 сек |
+| Доступность шлюза | ≥ 99.9% | ≥ 99.0% |
+| Прозрачность BENIGN | 100% байт-в-байт | 100% |
+| Корректность redirect destination | 100% | 100% |
+| Логирование всех решений | 100% | 100% |
+
+## Метрики по категориям
+
+### Recall (полнота) — не пропустить угрозу
+Recall = TP / (TP + FN)
+
+**Цель:** ≥ 0.90 для каждой категории угрозы.
+
+**Почему критично:** пропущенная угроза — это риск безопасности.
+
+### Precision (точность) — не заспамить адресатов
+Precision = TP / (TP + FP)
+
+text
+
+**Цель:** ≥ 0.90.
+
+**Почему критично:** ложное срабатывание = лишняя работа для службы безопасности.
+
+### FPR (False Positive Rate) на BENIGN
+FPR = FP / (FP + TN)
+
+text
+
+**Цель:** ≤ 0.05.
+
+**Почему критично:** обычные письма не должны страдать.
+
+## Как считать
+
+### Backend
+Прогон 70 писем через DeepSeek → `results.csv`:
+```csv
+id,expected_category,predicted_category,expected_action,actual_action,confidence
+1,TERRORISM,TERRORISM,REDIRECT,REDIRECT,0.98
+...
+QA
+Скрипт для расчёта метрик:
+
+python
+from sklearn.metrics import classification_report, confusion_matrix
+
+report = classification_report(
+    y_true=expected,
+    y_pred=predicted,
+    labels=["TERRORISM", "TECHNOGENIC", "ILLEGAL", "OTHER_THREAT", "BENIGN"]
+)
+print(report)

@@ -1,0 +1,6 @@
+From: threat@example.com
+To: user@company.local
+Subject: Требование
+
+Переведи 50 000 рублей на счёт,
+иначе я похищу твоего сына.

@@ -1,0 +1,6 @@
+From: threat@example.com
+To: info@company.local
+Subject: Авария на заводе
+
+В 12:00 на химзаводе №5 произойдёт выброс хлора.
+Готовьтесь.

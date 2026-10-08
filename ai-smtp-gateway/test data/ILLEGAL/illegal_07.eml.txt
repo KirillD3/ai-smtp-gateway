@@ -1,0 +1,6 @@
+From: threat@example.com
+To: user@company.local
+Subject: You will pay
+
+I know where you live.
+If you don't pay, I will hurt your family.

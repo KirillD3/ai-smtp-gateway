@@ -1,0 +1,6 @@
+From: anon@example.com
+To: user@company.local
+Subject: Документ
+
+Во вложении — план аварии на АЭС.
+Мы серьёзны. Время — 12:00.

@@ -1,0 +1,230 @@
+[
+  {
+    "input": {
+      "subject": "Новости",
+      "from": {"address": "news@example.com", "name": null},
+      "to": [{"address": "user@company.ru", "name": null}],
+      "cc": [],
+      "date": "2026-10-07T10:00:00+03:00",
+      "body": {"text": "Вчера в Стамбуле произошёл теракт, погибло 10 человек.", "html_present": false, "attachments": []},
+      "headers_extra": {}
+    },
+    "output": {
+      "category": "BENIGN",
+      "confidence": 0.95,
+      "reason": "Новость о теракте в третьем лице, нет субъекта угрозы.",
+      "indicators": ["теракт", "вчера", "Стамбул"],
+      "language": "ru",
+      "is_threat": false
+    }
+  },
+  {
+    "input": {
+      "subject": "Срочно",
+      "from": {"address": "unknown@example.com", "name": null},
+      "to": [{"address": "user@company.ru", "name": null}],
+      "cc": [],
+      "date": "2026-10-07T10:32:00+03:00",
+      "body": {"text": "Завтра в 12:00 взорвём торговый центр на Ленина.", "html_present": false, "attachments": []},
+      "headers_extra": {}
+    },
+    "output": {
+      "category": "TERRORISM",
+      "confidence": 0.98,
+      "reason": "Прямая угроза взрыва с конкретным местом и временем.",
+      "indicators": ["взорвём", "торговый центр", "12:00"],
+      "language": "ru",
+      "is_threat": true
+    }
+  },
+  {
+    "input": {
+      "subject": "Авария на заводе",
+      "from": {"address": "threat@example.com", "name": null},
+      "to": [{"address": "info@company.ru", "name": null}],
+      "cc": [],
+      "date": "2026-10-07T10:00:00+03:00",
+      "body": {"text": "В 12:00 на химзаводе №5 произойдёт выброс хлора. Готовьтесь.", "html_present": false, "attachments": []},
+      "headers_extra": {}
+    },
+    "output": {
+      "category": "TECHNOGENIC",
+      "confidence": 0.94,
+      "reason": "Угроза выброса на промышленном объекте с конкретным временем.",
+      "indicators": ["выброс", "хлор", "химзавод", "12:00"],
+      "language": "ru",
+      "is_threat": true
+    }
+  },
+  {
+    "input": {
+      "subject": "Долг",
+      "from": {"address": "threat@example.com", "name": null},
+      "to": [{"address": "user@company.ru", "name": null}],
+      "cc": [],
+      "date": "2026-10-07T10:00:00+03:00",
+      "body": {"text": "Если не вернёшь долг до пятницы, я тебя найду и покалечу.", "html_present": false, "attachments": []},
+      "headers_extra": {}
+    },
+    "output": {
+      "category": "ILLEGAL",
+      "confidence": 0.92,
+      "reason": "Угроза физической расправы в адрес конкретного лица.",
+      "indicators": ["найду", "покалечу", "долг"],
+      "language": "ru",
+      "is_threat": true
+    }
+  },
+  {
+    "input": {
+      "subject": "Шахматы",
+      "from": {"address": "friend@example.com", "name": null},
+      "to": [{"address": "user@company.ru", "name": null}],
+      "cc": [],
+      "date": "2026-10-07T10:00:00+03:00",
+      "body": {"text": "Я тебя убью на шахматах!", "html_present": false, "attachments": []},
+      "headers_extra": {}
+    },
+    "output": {
+      "category": "BENIGN",
+      "confidence": 0.97,
+      "reason": "Метафора в игровом контексте, нет реальной угрозы.",
+      "indicators": ["убью", "шахматы"],
+      "language": "ru",
+      "is_threat": false
+    }
+  },
+  {
+    "input": {
+      "subject": "Данные",
+      "from": {"address": "anon@example.com", "name": null},
+      "to": [{"address": "user@company.ru", "name": null}],
+      "cc": [],
+      "date": "2026-10-07T10:00:00+03:00",
+      "body": {"text": "Я залью в сеть все твои переписки и фото, если не заплатишь.", "html_present": false, "attachments": []},
+      "headers_extra": {}
+    },
+    "output": {
+      "category": "OTHER_THREAT",
+      "confidence": 0.88,
+      "reason": "Угроза утечки данных под условием оплаты.",
+      "indicators": ["залью", "переписки", "фото", "заплатишь"],
+      "language": "ru",
+      "is_threat": true
+    }
+  },
+  {
+    "input": {
+      "subject": "Fwd: Угроза",
+      "from": {"address": "friend@example.com", "name": null},
+      "to": [{"address": "user@company.ru", "name": null}],
+      "cc": [],
+      "date": "2026-10-07T10:00:00+03:00",
+      "body": {"text": "Пересылаю тебе письмо, которое мне прислали. Что думаешь?", "html_present": false, "attachments": []},
+      "headers_extra": {}
+    },
+    "output": {
+      "category": "BENIGN",
+      "confidence": 0.75,
+      "reason": "Пересылка без собственной угрозы от автора.",
+      "indicators": ["пересылаю", "письмо"],
+      "language": "ru",
+      "is_threat": false
+    }
+  },
+  {
+    "input": {
+      "subject": "Внимание",
+      "from": {"address": "x@example.com", "name": null},
+      "to": [{"address": "user@company.ru", "name": null}],
+      "cc": [],
+      "date": "2026-10-07T10:00:00+03:00",
+      "body": {"text": "Завтра в 12:00 в3рвём ТЦ на Ленина.", "html_present": false, "attachments": []},
+      "headers_extra": {}
+    },
+    "output": {
+      "category": "TERRORISM",
+      "confidence": 0.95,
+      "reason": "Обфускация слова «взорвём», угроза взрыва с местом и временем.",
+      "indicators": ["в3рвём", "ТЦ", "12:00"],
+      "language": "ru",
+      "is_threat": true
+    }
+  },
+  {
+    "input": {
+      "subject": "Bomb threat",
+      "from": {"address": "threat@example.com", "name": null},
+      "to": [{"address": "user@company.ru", "name": null}],
+      "cc": [],
+      "date": "2026-10-07T10:00:00+03:00",
+      "body": {"text": "We have placed a bomb in the subway. Pay 1 million dollars.", "html_present": false, "attachments": []},
+      "headers_extra": {}
+    },
+    "output": {
+      "category": "TERRORISM",
+      "confidence": 0.96,
+      "reason": "Прямая угроза взрыва в метро с требованием выкупа.",
+      "indicators": ["bomb", "subway", "pay"],
+      "language": "en",
+      "is_threat": true
+    }
+  },
+  {
+    "input": {
+      "subject": "Книга",
+      "from": {"address": "friend@example.com", "name": null},
+      "to": [{"address": "user@company.ru", "name": null}],
+      "cc": [],
+      "date": "2026-10-07T10:00:00+03:00",
+      "body": {"text": "«Я тебя убью», — сказал герой книги. Сильная сцена.", "html_present": false, "attachments": []},
+      "headers_extra": {}
+    },
+    "output": {
+      "category": "BENIGN",
+      "confidence": 0.95,
+      "reason": "Цитата из книги, нет реальной угрозы.",
+      "indicators": ["убью", "книга", "цитата"],
+      "language": "ru",
+      "is_threat": false
+    }
+  },
+  {
+    "input": {
+      "subject": "Договор",
+      "from": {"address": "lawyer@example.com", "name": null},
+      "to": [{"address": "user@company.ru", "name": null}],
+      "cc": [],
+      "date": "2026-10-07T10:00:00+03:00",
+      "body": {"text": "В договоре указано, что угроза причинения вреда является основанием для расторжения.", "html_present": false, "attachments": []},
+      "headers_extra": {}
+    },
+    "output": {
+      "category": "BENIGN",
+      "confidence": 0.92,
+      "reason": "Юридический текст, слово «угроза» — термин, не речевой акт.",
+      "indicators": ["угроза", "договор", "расторжение"],
+      "language": "ru",
+      "is_threat": false
+    }
+  },
+  {
+    "input": {
+      "subject": "(без темы)",
+      "from": {"address": "anon@example.com", "name": null},
+      "to": [{"address": "user@company.ru", "name": null}],
+      "cc": [],
+      "date": "2026-10-07T10:00:00+03:00",
+      "body": {"text": "", "html_present": false, "attachments": []},
+      "headers_extra": {}
+    },
+    "output": {
+      "category": "BENIGN",
+      "confidence": 0.50,
+      "reason": "Пустое тело письма, признаков угрозы нет.",
+      "indicators": [],
+      "language": "unknown",
+      "is_threat": false
+    }
+  }
+]
