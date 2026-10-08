@@ -1,0 +1,5 @@
+From: news@example.com
+To: user@company.local
+Subject: Преступление
+
+В Москве задержан подозреваемый в убийстве.

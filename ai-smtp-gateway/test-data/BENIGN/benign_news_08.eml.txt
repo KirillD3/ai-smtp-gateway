@@ -1,0 +1,6 @@
+From: news@example.com
+To: user@company.local
+Subject: Аналитика
+
+Эксперты обсуждают угрозу
+техногенных катастроф в регионе.

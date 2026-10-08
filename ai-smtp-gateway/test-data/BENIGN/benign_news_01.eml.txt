@@ -1,0 +1,6 @@
+From: news@example.com
+To: user@company.local
+Subject: Новости
+
+Вчера в Стамбуле произошёл теракт,
+погибло 10 человек. Подробности по ссылке.

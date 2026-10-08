@@ -1,0 +1,5 @@
+From: colleague@company.local
+To: user@company.local
+Subject: Проект
+
+Во вложении — правки по проекту.

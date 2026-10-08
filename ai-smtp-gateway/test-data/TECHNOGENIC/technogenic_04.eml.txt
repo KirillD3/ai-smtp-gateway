@@ -1,0 +1,6 @@
+From: threat@example.com
+To: user@company.local
+Subject: Вода
+
+Мы отравим водозабор города.
+У вас есть 24 часа.

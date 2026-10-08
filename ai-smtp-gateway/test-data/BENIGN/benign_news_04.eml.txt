@@ -1,0 +1,5 @@
+From: news@example.com
+To: user@company.local
+Subject: Теракт предотвращён
+
+Спецслужбы предотвратили теракт в метро.

@@ -1,0 +1,6 @@
+From: colleague@company.local
+To: user@company.local
+Subject: Поздравление
+
+С днём рождения!
+Желаю успехов.

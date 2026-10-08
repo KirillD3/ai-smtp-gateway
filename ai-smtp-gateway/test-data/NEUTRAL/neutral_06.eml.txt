@@ -1,0 +1,3 @@
+From: anon@example.com
+To: user@company.local
+Subject: (без темы)

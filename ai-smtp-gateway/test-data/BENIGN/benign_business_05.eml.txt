@@ -1,0 +1,5 @@
+From: partner@company.local
+To: user@company.local
+Subject: Созвон
+
+Давайте созвонимся завтра в 10:00.

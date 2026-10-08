@@ -1,0 +1,5 @@
+From: anon@example.com
+To: user@company.local
+Subject: HTML
+
+<html><body><p>Тест</p></body></html>

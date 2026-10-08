@@ -1,0 +1,7 @@
+From: x@example.com
+To: user@company.local
+Subject: Просьба
+
+Если не заплатишь,
+с тобой случится то же,
+что с твоим соседом.

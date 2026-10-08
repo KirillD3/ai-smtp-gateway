@@ -1,0 +1,6 @@
+From: hr@company.local
+To: user@company.local
+Subject: Отпуск
+
+Добрый день!
+Ваше заявление на отпуск согласовано.

@@ -1,0 +1,6 @@
+From: colleague@company.local
+To: user@company.local
+Subject: Отчёт
+
+Отчёт за квартал готов.
+Посмотрите, пожалуйста.

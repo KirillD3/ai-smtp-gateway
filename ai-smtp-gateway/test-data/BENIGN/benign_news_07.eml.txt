@@ -1,0 +1,6 @@
+From: news@example.com
+To: user@company.local
+Subject: Рассылка
+
+Обзор новостей за неделю.
+Теракты, аварии, преступления.

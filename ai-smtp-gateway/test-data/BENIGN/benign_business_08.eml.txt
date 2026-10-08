@@ -1,0 +1,5 @@
+From: finance@company.local
+To: user@company.local
+Subject: Акт
+
+Акт выполненных работ во вложении.

@@ -1,0 +1,6 @@
+From: x@example.com
+To: user@company.local
+Subject: Киберугроза
+
+Мы взломаем вашу систему
+и опубликуем все данные клиентов.

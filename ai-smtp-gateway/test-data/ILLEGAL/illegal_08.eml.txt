@@ -1,0 +1,6 @@
+From: anon@example.com
+To: user@company.local
+Subject: Журналист
+
+Твоя статья была последней.
+Я знаю, где ты живёшь.

@@ -1,0 +1,6 @@
+From: threat@example.com
+To: user@company.local
+Subject: Вирус
+
+Мы выпустим вирус в систему водоснабжения города.
+Никто не останется в стороне.
